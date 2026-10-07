@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathQuest - Numerical Methods Explorer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <h1 class="logo">Math<span>Quest</span></h1>
+            <nav id="module-nav">
+                <!-- Modules will be injected here -->
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="topbar glass-panel">
+                <h2 id="current-topic-title">Select a Topic</h2>
+            </header>
+
+            <div class="content-body">
+                <!-- Input Panel -->
+                <section class="input-section glass-panel" id="input-panel" style="display: none;">
+                    <h3>Parameters</h3>
+                    <div id="dynamic-inputs"></div>
+                    <button class="primary-btn" id="solve-btn">Solve & Simulate</button>
+                </section>
+
+                <!-- Visualization Panel (Graphs & Steps) -->
+                <section class="viz-section glass-panel" id="viz-panel" style="display: none;">
+                    <h3>Simulation Results</h3>
+                    
+                    <div class="chart-container" style="display: none;" id="chart-wrapper">
+                        <canvas id="resultChart"></canvas>
+                    </div>
+
+                    <div class="step-controls">
+                        <button id="prev-step-btn" disabled>Previous Step</button>
+                        <span id="step-counter">Step 0 / 0</span>
+                        <button id="next-step-btn" disabled>Next Step</button>
+                    </div>
+
+                    <div id="step-display" class="step-display">
+                        <!-- Step details injected here -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

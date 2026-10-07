@@ -1,0 +1,100 @@
+:root {
+    --bg-color: #0b0f19;
+    --panel-bg: rgba(255, 255, 255, 0.05);
+    --panel-border: rgba(255, 255, 255, 0.1);
+    --accent: #00f0ff;
+    --accent-glow: rgba(0, 240, 255, 0.4);
+    --text-primary: #ffffff;
+    --text-secondary: #a0aec0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    background-image: radial-gradient(circle at top right, rgba(0,240,255,0.1), transparent 40%),
+                      radial-gradient(circle at bottom left, rgba(112,0,255,0.1), transparent 40%);
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+h1, h2, h3 { font-family: 'Outfit', sans-serif; }
+
+.app-container { display: flex; height: 100vh; padding: 1rem; gap: 1rem; }
+
+.glass-panel {
+    background: var(--panel-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--panel-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* Sidebar */
+.sidebar { width: 280px; display: flex; flex-direction: column; gap: 2rem; overflow-y: auto; }
+.logo { font-size: 2rem; font-weight: 800; text-align: center; }
+.logo span { color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
+
+.nav-module { margin-bottom: 1rem; }
+.nav-module-title { font-weight: 700; color: var(--text-secondary); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; }
+.nav-topic { 
+    padding: 0.75rem 1rem; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+.nav-topic:hover { background: rgba(255,255,255,0.1); }
+.nav-topic.active { background: rgba(0, 240, 255, 0.15); border-left: 4px solid var(--accent); color: var(--accent); }
+
+/* Main Content */
+.main-content { flex: 1; display: flex; flex-direction: column; gap: 1rem; overflow: hidden; }
+.topbar { display: flex; align-items: center; }
+
+.content-body { display: flex; gap: 1rem; flex: 1; overflow: hidden; }
+
+/* Input Section */
+.input-section { width: 350px; overflow-y: auto; display: flex; flex-direction: column; gap: 1.5rem; }
+.input-group { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+.input-group label { font-size: 0.85rem; color: var(--text-secondary); }
+.input-group input { 
+    background: rgba(0,0,0,0.2); border: 1px solid var(--panel-border); 
+    color: white; padding: 0.75rem; border-radius: 8px; font-family: 'Inter', sans-serif;
+    outline: none; transition: border 0.3s;
+}
+.input-group input:focus { border-color: var(--accent); }
+
+.matrix-input-row { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; }
+.matrix-input-row input { width: 60px; text-align: center; }
+
+.primary-btn {
+    background: linear-gradient(135deg, #00f0ff, #0080ff);
+    color: white; border: none; padding: 1rem; border-radius: 8px;
+    font-weight: 600; font-family: 'Inter', sans-serif; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-transform: uppercase; letter-spacing: 1px;
+}
+.primary-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 15px var(--accent-glow); }
+
+/* Viz Section */
+.viz-section { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 1rem; }
+.chart-container { height: 300px; background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1rem; border: 1px solid var(--panel-border); }
+
+.step-controls { display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; }
+.step-controls button {
+    background: transparent; border: 1px solid var(--accent); color: var(--accent);
+    padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; transition: all 0.3s;
+}
+.step-controls button:disabled { border-color: var(--text-secondary); color: var(--text-secondary); cursor: not-allowed; }
+.step-controls button:not(:disabled):hover { background: var(--accent); color: black; }
+
+.step-display { padding: 1rem; font-family: monospace; font-size: 1.1rem; white-space: pre-wrap; background: rgba(0,0,0,0.3); border-radius: 8px; min-height: 200px; }
+
+/* Micro-animations */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: fadeIn 0.4s ease forwards; }

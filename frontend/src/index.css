@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .glass {
+    @apply bg-card backdrop-blur-xl border border-cardBorder shadow-[0_8px_32px_rgba(0,0,0,0.3)];
+  }
+}
+
+/* Hide number input arrows */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Background Orbs */
+.bg-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.15;
+  animation: drift 20s infinite alternate;
+}
+.orb-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #00f0ff; }
+.orb-2 { bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: #8b5cf6; animation-delay: -5s; }
+.orb-3 { top: 40%; left: 40%; width: 40vw; height: 40vw; background: #ec4899; animation-delay: -10s; }
+
+@keyframes drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(100px, 50px); }
+}
+
+/* Floating Math Symbols */
+.math-symbol {
+  position: fixed;
+  color: rgba(255,255,255,0.05);
+  font-family: 'Space Grotesk';
+  font-size: 8rem;
+  z-index: -1;
+  user-select: none;
+}
